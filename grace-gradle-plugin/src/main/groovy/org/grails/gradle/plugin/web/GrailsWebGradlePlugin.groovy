@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2024 the original author or authors.
+ * Copyright 2015-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import grails.util.Environment
 
 import org.grails.gradle.plugin.commands.ApplicationContextCommandTask
 import org.grails.gradle.plugin.core.GrailsGradlePlugin
+import org.grails.gradle.plugin.util.BuildSettings
 
 /**
  * Adds web specific extensions
@@ -67,8 +68,10 @@ class GrailsWebGradlePlugin extends GrailsGradlePlugin {
                 description = "Prints out a report of the project's URL mappings"
                 classpath = fileCollection
                 systemProperty Environment.KEY, System.getProperty(Environment.KEY, Environment.DEVELOPMENT.name)
+                systemProperty BuildSettings.APP_BASE_DIR, project.projectDir
                 systemProperty 'spring.main.banner-mode', 'OFF'
                 systemProperty 'logging.level.ROOT', 'OFF'
+                systemProperty "spring.devtools.restart.enabled", false
                 systemProperty 'spring.output.ansi.enabled', 'always'
                 command = 'url-mappings-report'
             }

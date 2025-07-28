@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2024 the original author or authors.
+ * Copyright 2014-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -143,7 +143,8 @@ class GrailsConsole extends Grails {
                 def grailsVersion = GrailsVersion.current().getVersion()
                 def javaVersion = String.format('%s (%s %s)', System.getProperty('java.version'),
                         System.getProperty('java.vm.vendor'), System.getProperty('java.vm.version'))
-                def osVersion = String.format('%s %s %s', System.getProperty('os.name'), System.getProperty('os.version'), System.getProperty('os.arch'))
+                def osVersion = String.format('%s %s %s', System.getProperty('os.name'),
+                        System.getProperty('os.version'), System.getProperty('os.arch'))
                 def groovyVersion = GroovySystem.getVersion()
                 def pane = super.swing.optionPane()
                 pane.setMessage('Welcome to the Grace Console for evaluating Groovy scripts' +

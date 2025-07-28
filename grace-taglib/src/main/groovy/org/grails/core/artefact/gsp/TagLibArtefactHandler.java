@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2023 the original author or authors.
+ * Copyright 2004-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ import org.grails.core.gsp.DefaultGrailsTagLibClass;
  * @author Marc Palmer (marc@anyware.co.uk)
  * @author Graeme Rocher
  * @author a.shneyderman
+ * @author Michael Yan
  *
  * @since 3.3
  */
@@ -42,12 +43,14 @@ public class TagLibArtefactHandler extends ArtefactHandlerAdapter {
 
     public static final String TYPE = "TagLib";
 
+    public static final String PATH = "taglib";
+
     private Map<String, GrailsTagLibClass> tag2libMap = new HashMap<>();
 
     private final Map<String, GrailsTagLibClass> namespace2tagLibMap = new HashMap<>();
 
     public TagLibArtefactHandler() {
-        super(TYPE, GrailsTagLibClass.class, DefaultGrailsTagLibClass.class, TYPE);
+        super(TYPE, GrailsTagLibClass.class, DefaultGrailsTagLibClass.class, TYPE, PATH);
     }
 
     @Override

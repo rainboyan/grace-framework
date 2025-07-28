@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2023 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -268,6 +268,13 @@ public class GroovyPageLayoutFinder implements ApplicationListener<ContextRefres
         return new SpringMVCViewDecorator(decoratorName, view);
     }
 
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        if (!(this.viewResolver instanceof GrailsViewResolver)) {
+            setViewResolver(event.getApplicationContext().getBean(GrailsViewResolver.class));
+        }
+    }
+
     private static class LayoutCacheKey {
 
         private String controllerName;
@@ -307,13 +314,6 @@ public class GroovyPageLayoutFinder implements ApplicationListener<ContextRefres
             return result;
         }
 
-    }
-
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent event) {
-        if (!(this.viewResolver instanceof GrailsViewResolver)) {
-            setViewResolver(event.getApplicationContext().getBean(GrailsViewResolver.class));
-        }
     }
 
     private static class DecoratorCacheValue {

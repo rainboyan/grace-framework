@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2023 the original author or authors.
+ * Copyright 2004-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,18 +24,23 @@ import grails.core.GrailsServiceClass;
 import org.grails.core.DefaultGrailsServiceClass;
 
 /**
+ * Handler for Service Artefact
+ *
  * @author Marc Palmer (marc@anyware.co.uk)
  * @author Michael Yan
+ * @since 0.5
  */
 public class ServiceArtefactHandler extends ArtefactHandlerAdapter {
 
     public static final String TYPE = "Service";
 
+    public static final String PATH = "services";
+
     public static final String PLUGIN_NAME = "services";
 
     public ServiceArtefactHandler() {
         super(TYPE, GrailsServiceClass.class, DefaultGrailsServiceClass.class,
-                DefaultGrailsServiceClass.SERVICE, false);
+                DefaultGrailsServiceClass.SERVICE, PATH);
     }
 
     @Override
@@ -45,14 +50,12 @@ public class ServiceArtefactHandler extends ArtefactHandlerAdapter {
 
     @Override
     public boolean isArtefact(ClassNode classNode) {
-        boolean isNotSpringService = classNode.getAnnotations(new ClassNode(Service.class)).isEmpty();
-        return isNotSpringService && super.isArtefact(classNode);
+        return super.isArtefact(classNode) && classNode.getAnnotations(new ClassNode(Service.class)).isEmpty();
     }
 
     @Override
     public boolean isArtefactClass(Class<?> clazz) {
-        boolean isNotSpringService = clazz.getAnnotation(Service.class) == null;
-        return isNotSpringService && super.isArtefactClass(clazz);
+        return super.isArtefactClass(clazz) && clazz.getAnnotation(Service.class) == null;
     }
 
 }

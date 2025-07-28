@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2024 the original author or authors.
+ * Copyright 2015-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -157,11 +157,13 @@ class MainClassFinder {
             }
             if (file.isDirectory()) {
                 File[] files = file.listFiles(new FileFilter() {
+
                     @Override
                     boolean accept(File f) {
                         (f.isDirectory() && !f.name.startsWith('.') && !f.hidden) ||
                                 (f.isFile() && f.name.endsWith(GrailsResourceUtils.CLASS_EXTENSION))
                     }
+
                 })
 
                 if (files) {

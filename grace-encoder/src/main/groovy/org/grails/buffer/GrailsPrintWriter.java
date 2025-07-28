@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2023 the original author or authors.
+ * Copyright 2009-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import groovy.lang.MetaClass;
 import groovy.lang.Writable;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codehaus.groovy.runtime.FormatHelper;
 import org.codehaus.groovy.runtime.GStringImpl;
 import org.codehaus.groovy.runtime.InvokerHelper;
 import org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation;
@@ -137,7 +138,7 @@ public class GrailsPrintWriter extends Writer implements GrailsWrappedWriter, En
             }
         }
         else {
-            InvokerHelper.write(this, obj);
+            FormatHelper.write(this, obj);
         }
         return this;
     }
