@@ -351,7 +351,7 @@ ruleset {
     FieldName(ignoreFieldNames: 'serialVersionUID,log,logger')
     InterfaceName
     InterfaceNameSameAsSuperInterface
-    MethodName
+    MethodName(regex: '[a-z]\\w*|.*[ #].*')
     ObjectOverrideMisspelledMethodName
     PackageName
     PackageNameMatchesFilePath
@@ -411,7 +411,7 @@ ruleset {
     UnnecessaryFloatInstantiation
     UnnecessaryGString
     // UnnecessaryGetter
-    UnnecessaryIfStatement
+    // UnnecessaryIfStatement
     UnnecessaryInstanceOfCheck
     UnnecessaryInstantiationToGetClass
     UnnecessaryIntegerInstantiation
@@ -424,7 +424,7 @@ ruleset {
     UnnecessaryPackageReference
     UnnecessaryParenthesesForMethodCallWithClosure
     UnnecessaryPublicModifier
-    UnnecessaryReturnKeyword
+    // UnnecessaryReturnKeyword
     UnnecessarySafeNavigationOperator
     UnnecessarySelfAssignment
     UnnecessarySemicolon

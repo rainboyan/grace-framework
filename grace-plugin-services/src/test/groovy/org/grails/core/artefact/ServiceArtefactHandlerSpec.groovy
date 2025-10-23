@@ -82,13 +82,13 @@ class TestService {
         moduleNode.putNodeMetaData('PROJECT_DIR', '/Users/grails/grails-demo-project')
         moduleNode.putNodeMetaData('GRAILS_APP_DIR', '/Users/grails/grails-demo-project/app')
         sourceUnit.getAST() >> moduleNode
-        sourceUnit.getName() >> '/Users/grails/grails-demo-project/app/services/org/grails/demo/TestService.groovy'
+        sourceUnit.getName() >> '/Users/grails/grails-demo-project/app/controllers/org/grails/demo/TestService.groovy'
 
         ClassNode classNode = new ClassNode(clazz)
         classNode.setModule(moduleNode)
 
         expect:
-        handler.isArtefact(classNode)
+        !handler.isArtefact(classNode)
     }
 
     void "Check TestService within 'grails-app/rest'"() {
