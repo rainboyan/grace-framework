@@ -25,7 +25,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry
 import org.springframework.beans.factory.support.DefaultListableBeanFactory
 import org.springframework.beans.factory.support.RootBeanDefinition
 import org.springframework.boot.test.context.ConfigDataApplicationContextInitializer
-import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebApplicationContext
+import org.springframework.boot.web.context.servlet.AnnotationConfigServletWebApplicationContext
 import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.AnnotationConfigUtils

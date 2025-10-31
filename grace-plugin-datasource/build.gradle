@@ -6,6 +6,7 @@ dependencies {
     api libs.grace.datastore.gorm
     api libs.groovy.sql
     api libs.spring.boot.autoconfigure
+    api libs.spring.boot.jdbc
     api libs.spring.context
     api libs.spring.jdbc
     implementation libs.tomcat.jdbc

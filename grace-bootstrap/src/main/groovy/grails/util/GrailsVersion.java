@@ -54,6 +54,8 @@ public final class GrailsVersion {
 
     public static final String GIT_COMMIT_ID_PROPERTY = "git.commit.id";
 
+    public static final String GRACE_2025 = "2025";
+
     public static final String GRACE_2024 = "2024";
 
     public static final String GRACE_2023 = "2023";
@@ -111,6 +113,10 @@ public final class GrailsVersion {
         return new GrailsVersion(version, null, null);
     }
 
+    public static boolean isGrace2025() {
+        return getMajorVersion(current().getVersion()).equals(GRACE_2025);
+    }
+
     public static boolean isGrace2024() {
         return getMajorVersion(current().getVersion()).equals(GRACE_2024);
     }
@@ -124,7 +130,11 @@ public final class GrailsVersion {
     }
 
     public static boolean isGrace() {
-        return isGrace2024() || isGrace2023() || isGrace2022();
+        return isGrace2025() || isGrace2024() || isGrace2023() || isGrace2022();
+    }
+
+    public static boolean isGrace2025(String graceVersion) {
+        return graceVersion != null && getMajorVersion(graceVersion).equals(GRACE_2025);
     }
 
     public static boolean isGrace2024(String graceVersion) {
@@ -140,11 +150,11 @@ public final class GrailsVersion {
     }
 
     public static boolean isGrace(String graceVersion) {
-        return isGrace2024(graceVersion) || isGrace2023(graceVersion) || isGrace2022(graceVersion);
+        return isGrace2025(graceVersion) || isGrace2024(graceVersion) || isGrace2023(graceVersion) || isGrace2022(graceVersion);
     }
 
     public static boolean isGraceSnapshotVersion(String graceVersion) {
-        return (isGrace2024(graceVersion) || isGrace2023(graceVersion) || isGrace2022(graceVersion)) && graceVersion.endsWith("-SNAPSHOT");
+        return (isGrace2025(graceVersion) || isGrace2024(graceVersion) || isGrace2023(graceVersion) || isGrace2022(graceVersion)) && graceVersion.endsWith("-SNAPSHOT");
     }
 
     public static boolean isGrails6(String grailsVersion) {

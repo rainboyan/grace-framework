@@ -47,7 +47,12 @@ class ApplicationArtefactHandler extends ArtefactHandlerAdapter {
 
     @Override
     boolean isArtefact(ClassNode classNode) {
-        if (classNode == null || classNode.isEnum() || classNode.isInterface() || (classNode instanceof InnerClassNode) || classNode.isAbstract()) {
+        if (classNode == null || classNode.isEnum() || classNode.isInterface()
+                // Caused by: java.lang.ClassCastException: class org.codehaus.groovy.ast.ClassNode cannot be cast to class org.codehaus.groovy.ast.InnerClassNode (org.codehaus.groovy.ast.ClassNode and org.codehaus.groovy.ast.InnerClassNode are in unnamed module of loader org.gradle.internal.classloader.VisitableURLClassLoader @d2d85ca)
+                //        at org.grails.boot.artefact.ApplicationArtefactHandler.isArtefact(ApplicationArtefactHandler.groovy:50)
+                //        at org.grails.compiler.injection.GlobalGrailsClassInjectorTransformation.visit(GlobalGrailsClassInjectorTransformation.groovy:92)
+                // || (classNode instanceof InnerClassNode)
+                || classNode.isAbstract()) {
             return false
         }
 

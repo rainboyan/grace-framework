@@ -44,6 +44,7 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.AbstractResource;
@@ -479,6 +480,11 @@ public class MockApplicationContext extends GroovyObjectSupport implements WebAp
                 return (T) getBean(requiredType.toClass());
             }
         };
+    }
+
+    @Override
+    public <T> ObjectProvider<T> getBeanProvider(ParameterizedTypeReference<T> requiredType) {
+        return null;
     }
 
     public class MockResource extends AbstractResource {

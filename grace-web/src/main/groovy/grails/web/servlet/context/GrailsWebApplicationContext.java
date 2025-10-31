@@ -25,7 +25,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
-import org.springframework.ui.context.ThemeSource;
 import org.springframework.util.Assert;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.ConfigurableWebEnvironment;
@@ -51,7 +50,7 @@ import org.grails.spring.GrailsApplicationContext;
  */
 @SuppressWarnings("deprecation")
 public class GrailsWebApplicationContext extends GrailsApplicationContext
-        implements ConfigurableWebApplicationContext, ThemeSource {
+        implements ConfigurableWebApplicationContext {
 
     private ServletContext servletContext;
 

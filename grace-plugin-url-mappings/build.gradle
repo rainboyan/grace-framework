@@ -8,6 +8,7 @@ dependencies {
 
     compileOnly libs.jakarta.servlet
     api libs.spring.boot.autoconfigure
+    implementation libs.spring.boot.web.server
     annotationProcessor libs.spring.boot.autoconfigureProcessor
     annotationProcessor libs.spring.boot.configurationProcessor
 }

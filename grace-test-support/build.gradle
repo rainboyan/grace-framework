@@ -21,6 +21,7 @@ dependencies {
     api libs.javassist
     api libs.jakarta.servlet
     api libs.spring.test
+    api libs.spring.boot.web.server
     api libs.spring.boot.test
     api libs.spock.core, { transitive = false }
     api libs.spock.spring, { transitive = false }

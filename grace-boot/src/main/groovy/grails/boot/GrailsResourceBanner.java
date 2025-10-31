@@ -130,13 +130,6 @@ public class GrailsResourceBanner extends ResourceBanner {
         return versions;
     }
 
-    @SuppressWarnings("removal")
-    @Deprecated(since = "2024.0.0", forRemoval = true)
-    protected String getApplicationVersion(Class<?> sourceClass) {
-        String applicationVersion = Metadata.getCurrent().getApplicationVersion();
-        return (applicationVersion != null) ? applicationVersion : super.getApplicationVersion(sourceClass);
-    }
-
     private String getApplicationVersion(Environment environment) {
         String appVersion = environment.getProperty("info.app.version");
         if (appVersion == null) {

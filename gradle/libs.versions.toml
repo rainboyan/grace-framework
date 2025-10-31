@@ -21,19 +21,19 @@ grace-data = "2024.0.0-SNAPSHOT"
 grace-data-hibernate = "2024.0.0-SNAPSHOT"
 grace-data-mongodb = "2024.0.0-SNAPSHOT"
 grace-doc-engine = "2.0.0-M1"
-groovy = "4.0.29"
+groovy = "5.0.2"
 gson = "2.11.0"
 h2 = "2.3.232"
 hsqldb = "2.7.3"
 itext = "2.0.8"
 jackson-databind = "2.18.4"
 jansi = "1.18"
-jakarta-annotation = "2.1.1"
-jakarta-el = "5.0.1"
+jakarta-annotation = "3.0.0"
+jakarta-el = "6.0.1"
 jakarta-inject = "2.0.1"
 jakarta-persistence = "3.1.0"
-jakarta-servlet = "6.0.0"
-jakarta-servlet-jsp = "3.1.1"
+jakarta-servlet = "6.1.0"
+jakarta-servlet-jsp = "4.0.0"
 jakarta-servlet-jsp-jstl = "3.0.2"
 jakarta-transaction = "2.0.1"
 jakarta-validation = "3.0.2"
@@ -59,10 +59,10 @@ sitemesh = "2.6.0"
 slf4j = "2.0.17"
 snakeyaml = "2.3"
 spock = "2.3-groovy-4.0"
-spring-boot = "3.4.11"
+spring-boot = "4.0.0-M3"
 spring-dependency-management = "1.1.7"
-spring-framework = "6.2.12"
-tomcat = "10.1.48"
+spring-framework = "7.0.0-RC1"
+tomcat = "11.0.11"
 xhtmlrenderer = "R8"
 
 [libraries]
@@ -189,11 +189,15 @@ spring-boot-configurationProcessor = { module = "org.springframework.boot:spring
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools", version.ref = "spring-boot" }
 spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-boot-jdbc = { module = "org.springframework.boot:spring-boot-jdbc", version.ref = "spring-boot" }
 spring-boot-loader-tools = { module = "org.springframework.boot:spring-boot-loader-tools", version.ref = "spring-boot" }
 spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "spring-boot" }
-spring-boot-starter-json = { module = "org.springframework.boot:spring-boot-starter-json", version.ref = "spring-boot" }
-spring-boot-starter-tomcat = { module = "org.springframework.boot:spring-boot-starter-tomcat", version.ref = "spring-boot" }
+spring-boot-jackson = { module = "org.springframework.boot:spring-boot-starter-json", version.ref = "spring-boot" }
+spring-boot-tomcat = { module = "org.springframework.boot:spring-boot-starter-tomcat", version.ref = "spring-boot" }
+spring-boot-webmvc = { module = "org.springframework.boot:spring-boot-webmvc", version.ref = "spring-boot" }
+spring-boot-servlet = { module = "org.springframework.boot:spring-boot-servlet", version.ref = "spring-boot" }
 spring-boot-test = { module = "org.springframework.boot:spring-boot-test", version.ref = "spring-boot" }
+spring-boot-web-server = { module = "org.springframework.boot:spring-boot-web-server", version.ref = "spring-boot" }
 spring-context = { module = "org.springframework:spring-context", version.ref = "spring-framework" }
 spring-contextSupport = { module = "org.springframework:spring-context-support", version.ref = "spring-framework" }
 spring-core = { module = "org.springframework:spring-core", version.ref = "spring-framework" }

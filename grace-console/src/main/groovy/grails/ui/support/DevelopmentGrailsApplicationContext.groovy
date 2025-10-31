@@ -16,7 +16,7 @@
 package grails.ui.support
 
 import groovy.transform.InheritConstructors
-import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext
+import org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext
 
 /**
  * A {@link org.springframework.web.context.WebApplicationContext} used during development

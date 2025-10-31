@@ -38,7 +38,7 @@ class TypeConvertingMap extends AbstractTypeConvertingMap {
     }
 
     Object clone() {
-        new TypeConvertingMap(new LinkedHashMap(this.wrappedMap))
+        new TypeConvertingMap(new LinkedHashMap(this.wrappedMap as Map))
     }
 
     Byte 'byte'(String name) {
