@@ -59,10 +59,10 @@ sitemesh = "2.6.0"
 slf4j = "2.0.17"
 snakeyaml = "2.3"
 spock = "2.4-groovy-5.0-SNAPSHOT"
-spring-boot = "4.0.0-M3"
+spring-boot = "4.0.0-RC1"
 spring-dependency-management = "1.1.7"
-spring-framework = "7.0.0-RC1"
-tomcat = "11.0.11"
+spring-framework = "7.0.0-RC2"
+tomcat = "11.0.13"
 xhtmlrenderer = "R8"
 
 [libraries]
