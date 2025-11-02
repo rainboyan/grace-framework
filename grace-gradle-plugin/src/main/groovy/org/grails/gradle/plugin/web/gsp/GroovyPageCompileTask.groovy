@@ -34,7 +34,7 @@ import org.gradle.work.InputChanges
  * @since 3.0
  */
 @CompileStatic
-class GroovyPageCompileTask extends AbstractCompile {
+abstract class GroovyPageCompileTask extends AbstractCompile {
 
     @Input
     @Optional

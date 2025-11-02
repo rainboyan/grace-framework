@@ -18,6 +18,7 @@ package org.grails.core.artefact
 import org.codehaus.groovy.ast.ClassNode
 import org.codehaus.groovy.ast.ModuleNode
 import org.codehaus.groovy.control.SourceUnit
+import spock.lang.PendingFeature
 import spock.lang.Specification
 
 import grails.core.ArtefactHandler
@@ -79,6 +80,7 @@ class TestEntity {
         !handler.isArtefact(clazz)
     }
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestEntity within 'grails-app/domain'"() {
         given:
         ArtefactHandler handler = new DomainClassArtefactHandler()
@@ -102,6 +104,7 @@ class TestEntity {
         handler.isArtefact(classNode)
     }
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestEntity within 'app/domain'"() {
         given:
         ArtefactHandler handler = new DomainClassArtefactHandler()

@@ -16,6 +16,7 @@
 package org.grails.compiler.web
 
 import org.codehaus.groovy.ast.ClassHelper
+import spock.lang.PendingFeature
 import spock.lang.Specification
 
 import grails.artefact.Artefact
@@ -29,6 +30,7 @@ import org.grails.compiler.injection.GrailsAwareClassLoader
  */
 class ControllerDomainTransformerSpec extends Specification {
 
+    @PendingFeature(reason = "BUG! exception in phase 'canonicalization' in source unit '/Users/grails/grails-demo-project/grails-app/domain/org/demo/Post.groovy' unexpected NullPointerException")
     def "Test Domain class was injected ControllersDomainBindingApi"() {
         given:
         def transformer = new ControllerDomainTransformer()

@@ -20,14 +20,14 @@ import javax.inject.Inject
 import org.gradle.api.model.ObjectFactory
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Nested
-import org.gradle.api.tasks.compile.AbstractOptions
 import org.gradle.api.tasks.compile.GroovyForkOptions
 
 /**
  * @author Graeme Rocher
  * @since 2024.0.0
  */
-class ViewCompileOptions extends AbstractOptions {
+class ViewCompileOptions implements Serializable {
+    private static final long serialVersionUID = 0
 
     @Input
     String encoding = 'UTF-8'

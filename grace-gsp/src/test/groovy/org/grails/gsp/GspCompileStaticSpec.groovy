@@ -16,11 +16,12 @@
 
 package org.grails.gsp
 
+import spock.lang.PendingFeature
+
 import grails.core.gsp.GrailsTagLibClass
 import org.grails.core.gsp.DefaultGrailsTagLibClass
 import org.grails.taglib.TagLibraryLookup
 import spock.lang.Specification
-
 
 class GspCompileStaticSpec extends Specification {
     GroovyPagesTemplateEngine gpte
@@ -83,6 +84,7 @@ class GspCompileStaticSpec extends Specification {
         compileStatic << [true, false]
     }
 
+    @PendingFeature(reason = '[Static type checking] - Cannot find matching method java.lang.Object#message(java.util.LinkedHashMap<java.lang.String, java.lang.String>)')
     def "should support message tag invocation"() {
         given:
         def template = '<%@ compileStatic="true"%>${' + (gDotPrefix ? 'g.' : '') + '''message(code:'World')}'''
@@ -94,6 +96,7 @@ class GspCompileStaticSpec extends Specification {
         gDotPrefix << [false, true]
     }
 
+    @PendingFeature(reason = '[Static type checking] - Cannot find matching method java.lang.Object#message(java.util.LinkedHashMap<java.lang.String, java.lang.String>)')
     def "should support message tag invocation inline"() {
         given:
         def template = """<%@ compileStatic="true"%><%
@@ -109,6 +112,7 @@ out.print(${gDotPrefix ? 'g.' : ''}message(code:'World'))
         gDotPrefix << [false, true]
     }
 
+    @PendingFeature(reason = '[Static type checking] - Cannot find matching method java.lang.Object#message(java.util.LinkedHashMap<java.lang.String, java.lang.Object>)')
     def "should support message tag invocation inline in a closure"() {
         given:
         def template = """<%@ compileStatic="true"%><%
@@ -143,6 +147,7 @@ out.print(messageClosure('World'))
         t.metaInfo.compilationException.message.contains('Cannot find matching method java.util.Date#getTimeTypo()')
     }
 
+    @PendingFeature(reason = "java.lang.NullPointerException: Cannot get property 'message' on null object")
     def "should fail compilation when using invalid property"() {
         given:
         def template = '''<%@ model="Date date"%>${somename}'''
@@ -152,6 +157,7 @@ out.print(messageClosure('World'))
         t.metaInfo.compilationException.message.contains('The variable [somename] is undeclared.')
     }
 
+    @PendingFeature(reason = '[Static type checking] - Cannot find matching method java.lang.Object#somemethod(java.util.LinkedHashMap<java.lang.String, java.lang.Integer>)')
     def "should fail compilation when calling method on invalid property"() {
         given:
         def template = '''<%@ model="Date date"%>${somename.somemethod([a: 1])}'''

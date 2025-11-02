@@ -51,7 +51,7 @@ import org.gradle.work.InputChanges
  * @since 4.0
  */
 @CompileStatic
-class GroovyPageForkCompileTask extends AbstractCompile {
+abstract class GroovyPageForkCompileTask extends AbstractCompile {
 
     private ExecOperations execOperations
 

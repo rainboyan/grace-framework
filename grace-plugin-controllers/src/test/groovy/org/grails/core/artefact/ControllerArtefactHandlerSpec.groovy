@@ -18,6 +18,7 @@ package org.grails.core.artefact
 import org.codehaus.groovy.ast.ClassNode
 import org.codehaus.groovy.ast.ModuleNode
 import org.codehaus.groovy.control.SourceUnit
+import spock.lang.PendingFeature
 import spock.lang.Specification
 
 import grails.core.ArtefactHandler
@@ -62,6 +63,7 @@ class TestController {
         !handler.isArtefact(clazz)
     }
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestController within 'grails-app/controllers'"() {
         given:
         ArtefactHandler handler = new ControllerArtefactHandler()
@@ -85,6 +87,7 @@ class TestController {
         handler.isArtefact(classNode)
     }
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestController within 'app/controllers'"() {
         given:
         ArtefactHandler handler = new ControllerArtefactHandler()

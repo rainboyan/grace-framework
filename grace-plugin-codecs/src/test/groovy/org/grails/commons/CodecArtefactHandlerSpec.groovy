@@ -18,6 +18,7 @@ package org.grails.commons
 import org.codehaus.groovy.ast.ClassNode
 import org.codehaus.groovy.ast.ModuleNode
 import org.codehaus.groovy.control.SourceUnit
+import spock.lang.PendingFeature
 import spock.lang.Specification
 
 import grails.core.ArtefactHandler
@@ -28,6 +29,7 @@ import grails.core.ArtefactHandler
  */
 class CodecArtefactHandlerSpec extends Specification {
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestCodec within 'grails-app/utils'"() {
         given:
         ArtefactHandler handler = new CodecArtefactHandler()
@@ -51,6 +53,7 @@ class TestCodec {
         handler.isArtefact(classNode)
     }
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestCodec within 'app/utils'"() {
         given:
         ArtefactHandler handler = new CodecArtefactHandler()

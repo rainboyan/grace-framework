@@ -31,7 +31,7 @@ import java.lang.annotation.Target;
 @Target({ ElementType.TYPE })
 public @interface Enhanced {
 
-    String version();
+    String version() default "";
 
     String[] enhancedFor() default {};
 

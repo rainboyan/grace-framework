@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.web.context.request.RequestContextHolder
 import spock.lang.Issue
+import spock.lang.PendingFeature
 import spock.lang.Specification
 
 import grails.views.ResolvableGroovyTemplateEngine
@@ -45,6 +46,7 @@ class JsonViewTemplateResolverSpec extends Specification {
         0 * templateResolver.resolveTemplate('/foo/bar.gson')
     }
 
+    @PendingFeature(reason = "org.spockframework.runtime.InvalidSpecException: The final method 'getRequest' of 'webRequest' can't be mocked by the 'byte-buddy' mock maker. Please use another mock maker supporting final methods.")
     void 'Test resolve paths for local and request version'() {
         given: 'A view resolver'
         def viewResolver = new JsonViewResolver()

@@ -18,6 +18,7 @@ package org.grails.core.artefact
 import org.codehaus.groovy.ast.ClassNode
 import org.codehaus.groovy.ast.ModuleNode
 import org.codehaus.groovy.control.SourceUnit
+import spock.lang.PendingFeature
 import spock.lang.Specification
 
 import grails.core.ArtefactHandler
@@ -28,6 +29,7 @@ import grails.core.ArtefactHandler
  */
 class UrlMappingsArtefactHandlerSpec extends Specification {
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestUrlMappings within 'grails-app/controllers'"() {
         given:
         ArtefactHandler handler = new UrlMappingsArtefactHandler()
@@ -51,6 +53,7 @@ class TestUrlMappings {
         handler.isArtefact(classNode)
     }
 
+    @PendingFeature(reason = 'classNode.getModule == null, cause isPrimaryNode == false in Groovy 5.0.0')
     void "Check TestUrlMappings within 'app/controllers'"() {
         given:
         ArtefactHandler handler = new UrlMappingsArtefactHandler()

@@ -3,7 +3,7 @@ ant = "1.10.15"
 asciidoctorj = "2.5.13"
 aspectj = "1.9.24"
 assertj = "3.26.3"
-bytebuddy = "1.15.11"
+bytebuddy = "1.17.8"
 caffeine = "3.1.8"
 cglib = "3.3.0"
 commons-codec = "1.17.2"
@@ -14,7 +14,7 @@ commons-validator = "1.9.0"
 glassfish-web-jsp-jstl = "3.0.1"
 gpars = "1.2.1"
 gradle = "8.14.3"
-gradle-git-properties = "2.4.2"
+gradle-git-properties = "2.5.3"
 grace-async = "7.0.0-M1"
 grace-events = "7.0.0-SNAPSHOT"
 grace-data = "2024.0.0-SNAPSHOT"
@@ -45,8 +45,8 @@ jodd = "3.3.8"
 json-unit = "2.40.1"
 jsoup = "1.18.3"
 jsr305 = "3.0.2"
-junit-jupiter = "5.11.4"
-junit-platform = "1.11.4"
+junit-jupiter = "6.0.0"
+junit-platform = "6.0.0"
 liquibase = "4.27.0"
 maven = "3.9.11"
 maven-resolver = "1.9.24"
@@ -153,7 +153,6 @@ jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "jsr305" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
 junit-platform-engine = { module = "org.junit.platform:junit-platform-engine", version.ref = "junit-platform" }
-junit-platform-runner = { module = "org.junit.platform:junit-platform-runner", version.ref = "junit-platform" }
 liquibase-cdi = { module = "org.liquibase:liquibase-cdi", version.ref = "liquibase" }
 liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
 liquibase-hibernate = { module = "org.liquibase.ext:liquibase-hibernate5", version.ref = "liquibase" }

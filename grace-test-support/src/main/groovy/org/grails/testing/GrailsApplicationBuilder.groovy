@@ -128,7 +128,7 @@ class GrailsApplicationBuilder {
         if (IS_SERVLET_API_PRESENT && servletContext != null) {
             AnnotationConfigServletWebApplicationContext annotationConfigServletWebApplicationContext =
                     (AnnotationConfigServletWebApplicationContext) ClassUtils.forName(
-                            'org.springframework.boot.web.servlet.context.AnnotationConfigServletWebApplicationContext').newInstance()
+                            'org.springframework.boot.web.context.servlet.AnnotationConfigServletWebApplicationContext').newInstance()
             annotationConfigServletWebApplicationContext.setServletContext(servletContext)
             annotationConfigServletWebApplicationContext.register(DEFAULT_AUTO_CONFIGURATIONS)
             context = annotationConfigServletWebApplicationContext

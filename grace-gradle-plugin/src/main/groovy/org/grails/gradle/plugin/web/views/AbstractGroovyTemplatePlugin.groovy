@@ -82,7 +82,7 @@ class AbstractGroovyTemplatePlugin implements Plugin<Project> {
                 Jar pathingJar = (Jar) allTasks.findByName('pathingJar')
                 allClasspath = project.files(
                         "${project.buildDir}/classes/groovy/main",
-                        "${project.buildDir}/resources/main", "${project.projectDir}/gsp-classes", pathingJar.archivePath)
+                        "${project.buildDir}/resources/main", "${project.projectDir}/gsp-classes", pathingJar.getArchiveFile())
                 templateCompileTask.dependsOn(pathingJar)
                 templateCompileTask.setClasspath(allClasspath)
             }

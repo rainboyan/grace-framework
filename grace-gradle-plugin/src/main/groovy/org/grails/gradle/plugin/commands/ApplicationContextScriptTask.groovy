@@ -27,7 +27,7 @@ import org.gradle.api.tasks.JavaExec
  * @since 3.0
  */
 @CompileStatic
-class ApplicationContextScriptTask extends JavaExec {
+abstract class ApplicationContextScriptTask extends JavaExec {
 
     ApplicationContextScriptTask() {
         getMainClass().set('grails.ui.script.GrailsApplicationScriptRunner')

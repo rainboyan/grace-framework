@@ -38,6 +38,6 @@ public @interface ApiDelegate {
     /**
      * @return The super class to check for in the first argument of api methods
      */
-    Class<?> value();
+    Class<?> value() default Object.class;
 
 }

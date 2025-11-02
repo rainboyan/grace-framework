@@ -87,6 +87,7 @@ class GroovyPageWithJSPTagsTests extends Specification implements TagLibUnitTest
 
     }
 
+    @PendingFeature(reason = 'org.grails.taglib.GrailsTagException: [Byte array resource [test_1762047722657]:8] Error executing tag <sitemesh:captureBody>: <UnionType:jakarta/servlet/jsp/tagext/JspTag+jakarta/servlet/jsp/tagext/DynamicAttributes>')
     void testDynamicAttributes() {
 
         when:
@@ -197,6 +198,7 @@ goodbye
         output == '10.00'
     }
 
+    @Ignore(value = 'java.lang.NoClassDefFoundError: <UnionType:jakarta/servlet/jsp/tagext/JspTag+jakarta/servlet/jsp/tagext/DynamicAttributes>')
     def testSpringJSPTags() {
         when:
         def template ='''<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>

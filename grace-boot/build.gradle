@@ -31,7 +31,7 @@ dependencies {
     testImplementation libs.mockito.junit
     testImplementation libs.grace.datastore.gorm.support
     testImplementation libs.spring.boot.test
-    testImplementation libs.tomcat.embed.core
+    testRuntimeOnly libs.spring.boot.tomcat
     testRuntimeOnly project(":grace-plugin-i18n")
     testRuntimeOnly project(":grace-plugin-url-mappings")
 }
