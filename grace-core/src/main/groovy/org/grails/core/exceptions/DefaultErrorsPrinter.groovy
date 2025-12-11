@@ -82,7 +82,7 @@ class DefaultErrorsPrinter extends DefaultStackTracePrinter implements CodeSnipp
                     }
                 }
 
-                if (!className || !lineNumber) {
+                if (!className || lineNumber < 0) {
                     continue
                 }
 

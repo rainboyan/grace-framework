@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2022 the original author or authors.
+ * Copyright 2011-2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -83,10 +83,11 @@ public class DefaultStackTraceFilterer implements StackTraceFilterer {
     public Throwable filter(Throwable source, boolean recursive) {
         if (recursive) {
             Throwable current = source;
-            while (current != null) {
+            while (current != null && current.getCause() != null) {
                 current = filter(current);
                 current = current.getCause();
             }
+            return current;
         }
         return filter(source);
     }
@@ -105,7 +106,9 @@ public class DefaultStackTraceFilterer implements StackTraceFilterer {
             // if not we will just skip sanitizing and leave it as is
             if (!newTrace.isEmpty()) {
                 // We don't want to lose anything, so log it
-                logger.error(FULL_STACK_TRACE_MESSAGE, source);
+                if (logger.isErrorEnabled()) {
+                    logger.error(FULL_STACK_TRACE_MESSAGE, source);
+                }
                 StackTraceElement[] clean = new StackTraceElement[newTrace.size()];
                 newTrace.toArray(clean);
                 source.setStackTrace(clean);
