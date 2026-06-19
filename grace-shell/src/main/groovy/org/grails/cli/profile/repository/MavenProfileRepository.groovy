@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2025 the original author or authors.
+ * Copyright 2015-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,9 @@ class MavenProfileRepository extends AbstractJarProfileRepository {
 
     public static final GrailsRepositoryConfiguration SONATYPE_SNAPSHOT_REPO = new GrailsRepositoryConfiguration(
             'SonatypeSnapshot', new URI(GrailsDependenciesDependencyManagement.SONATYPE_REPO_SNAPSHOT), true)
+
+    public static final GrailsRepositoryConfiguration APACHE_SNAPSHOT_REPO = new GrailsRepositoryConfiguration(
+            'ApacheSnapshot', new URI(GrailsDependenciesDependencyManagement.APACHE_REPO_SNAPSHOT), true)
 
     public static final GrailsRepositoryConfiguration MAVEN_LOCAL_REPO = getMavenLocalRepoConfiguration()
 
@@ -167,7 +170,7 @@ class MavenProfileRepository extends AbstractJarProfileRepository {
 
     private static List<GrailsRepositoryConfiguration> getGrailsRepositoryConfigurations(String graceVersion) {
         if (GrailsVersion.isGraceSnapshotVersion(graceVersion)) {
-            return [MAVEN_LOCAL_REPO, SONATYPE_SNAPSHOT_REPO]
+            return [MAVEN_LOCAL_REPO, SONATYPE_SNAPSHOT_REPO, APACHE_SNAPSHOT_REPO]
         }
         else {
             return [MAVEN_LOCAL_REPO, DEFAULT_REPO]

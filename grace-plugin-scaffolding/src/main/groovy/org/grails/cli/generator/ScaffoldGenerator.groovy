@@ -46,7 +46,7 @@ class ScaffoldGenerator extends AbstractGenerator {
     @Override
     boolean generate() {
         String[] args = commandLine.remainingArgs.toArray(new String[0])
-        if (args.size() < 2) {
+        if (args.length < 2) {
             return
         }
         boolean overwrite = commandLine.hasOption('force') || commandLine.hasOption('f')
@@ -95,7 +95,7 @@ class ScaffoldGenerator extends AbstractGenerator {
     @Override
     boolean revoke() {
         String[] args = commandLine.remainingArgs.toArray(new String[0])
-        if (args.size() < 2) {
+        if (args.length < 2) {
             return
         }
 

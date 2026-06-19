@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 the original author or authors.
+ * Copyright 2024-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,6 +54,18 @@ class GrailsVersionSpec extends Specification {
         !GrailsVersion.isGrace2024('2021.0')
         !GrailsVersion.isGrace2024('2022.0')
         !GrailsVersion.isGrace2024('2023.0')
+    }
+
+    def "Grace version 2025.x"() {
+        expect:
+        GrailsVersion.isGrace2025('2025')
+        GrailsVersion.isGrace2025('2025.')
+        GrailsVersion.isGrace2025('2025.0')
+        GrailsVersion.isGrace2025('2025.0.1')
+        !GrailsVersion.isGrace2025('2021.0')
+        !GrailsVersion.isGrace2025('2022.0')
+        !GrailsVersion.isGrace2025('2023.0')
+        !GrailsVersion.isGrace2025('2024.0')
     }
 
     def "Grace versions"() {

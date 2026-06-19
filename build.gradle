@@ -98,6 +98,17 @@ allprojects {
                 snapshotsOnly()
             }
         }
+        maven {
+            name = 'Apache Repository Snapshots'
+            url = 'https://repository.apache.org/content/repositories/snapshots/'
+
+            content {
+                includeGroupAndSubgroups 'org.apache.groovy'
+            }
+            mavenContent {
+                snapshotsOnly()
+            }
+        }
     }
 
     configurations {
@@ -106,6 +117,13 @@ allprojects {
                 eachDependency { DependencyResolveDetails details ->
                     if (details.requested.group == "org.spockframework") {
                         details.useVersion(spockVersion)
+                    }
+                }
+            }
+            resolutionStrategy {
+                eachDependency { DependencyResolveDetails details ->
+                    if (details.requested.group == "org.apache.groovy") {
+                        details.useVersion(groovyVersion)
                     }
                 }
             }
@@ -339,12 +357,12 @@ subprojects { project ->
 
         testImplementation libs.groovy.test.junit5
         testImplementation libs.junit.jupiter.api
-        testImplementation libs.junit.platform.runner
+        // testImplementation libs.junit.platform.runner
         testRuntimeOnly libs.junit.jupiter.engine
 
         if (project.name != "grace-docs") {
             // Testing
-            testImplementation libs.slf4j.simple
+            // testImplementation libs.slf4j.simple
             testImplementation libs.spock.core
             // Required by Spock's Mocking
             testImplementation libs.bytebuddy
@@ -361,8 +379,9 @@ subprojects { project ->
     }
 
     test {
+        failOnNoDiscoveredTests = false
         retry {
-            maxRetries = 2
+            maxRetries = 0
             maxFailures = 20
             failOnPassedAfterRetry = true
         }
@@ -405,9 +424,9 @@ subprojects { project ->
     configurations {
         meta
         published.extendsFrom archives, meta
-        testRuntimeOnly {
-            exclude group: 'commons-logging', module: 'commons-logging'
-        }
+        // testRuntimeOnly {
+        //     exclude group: 'commons-logging', module: 'commons-logging'
+        // }
     }
 }
 

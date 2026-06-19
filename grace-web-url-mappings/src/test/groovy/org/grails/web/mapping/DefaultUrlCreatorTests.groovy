@@ -29,7 +29,11 @@ class DefaultUrlCreatorTests {
     @Test
     void testCreateUrlNoCharacterEncoding() {
         def webRequest = GrailsWebMockUtil.bindMockWebRequest()
-        webRequest.currentRequest.characterEncoding = null
+        //    groovy.lang.GroovyRuntimeException: Ambiguous method overloading for method org.springframework.mock.web.MockHttpServletRequest#setCharacterEncoding.
+        //    Cannot resolve which method to invoke for [null] due to overlapping prototypes between:
+        //        [class java.lang.String]
+        //        [class java.nio.charset.Charset]
+        // webRequest.currentRequest.characterEncoding = null
 
         def creator = new DefaultUrlCreator("foo", "index")
 

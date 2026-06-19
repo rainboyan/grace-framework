@@ -1,5 +1,5 @@
 /*
- * Copyright 2024-2025 the original author or authors.
+ * Copyright 2024-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,8 +35,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.AnyNestedCondition;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration;
+import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Import;
@@ -61,7 +60,7 @@ import org.grails.plugins.datasource.DataSourcePluginConfiguration.GrailsDataSou
  * @since 2023.1.0
  */
 @AutoConfiguration(before = {
-        DataSourceAutoConfiguration.class, SqlInitializationAutoConfiguration.class
+        DataSourceAutoConfiguration.class
 })
 @AutoConfigureOrder(100)
 @Import(DataSourcePluginConfiguration.BeanPostProcessorsRegistrar.class)

@@ -1,6 +1,17 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            name = 'Apache Repository Snapshots'
+            url = 'https://repository.apache.org/content/repositories/snapshots/'
+
+            content {
+                includeGroupAndSubgroups 'org.apache.groovy'
+            }
+            mavenContent {
+                snapshotsOnly()
+            }
+        }
     }
     dependencies {
         classpath libs.groovy.toml
@@ -13,10 +24,22 @@ def toml = new groovy.toml.TomlSlurper()
 def grails = toml.parse(rootProject.file('gradle/grails.versions.toml'))
 def libs = toml.parse(rootProject.file('gradle/libs.versions.toml'))
 
-def tokens = [:]
 def bundles = libs.bundles
 def libraries = bundles*.value.flatten().unique().sort()
 def libraryVersions = libraries.collect({ libs.libraries[it] })*.version.ref.unique().sort()
+
+def tokens = [:]
+for (ver in libraryVersions) {
+    tokens["${ver}.version"] = libs.versions[ver]
+}
+for (dep in grails.plugins) {
+    tokens["grace-plugin-${dep.key}.version"] = dep.value
+}
+for (dep in grails.profiles) {
+    tokens["grace-profile-${dep.key}.version"] = dep.value
+}
+
+def properties = tokens.sort({it.key[0..-9]})
 
 publishing {
     publications {
@@ -29,32 +52,14 @@ publishing {
 
                     mkp.properties {
 
-                        for (ver in libraryVersions) {
-                            String version = libs.versions[ver]
-                            tokens["${ver}.version"] = version
+                        for (p in properties) {
+                            String version = p.value
                             if (!isBuildSnapshot && version.endsWith("-SNAPSHOT")) {
-                                throw new RuntimeException("Cannot have a snapshot dependency on [$dep.key] for a release!")
+                                throw new RuntimeException("Cannot have a snapshot dependency on [${p.key}] for a release!")
                             }
-                            mkp."${ver}.version"(version)
+                            mkp."${p.key}"(version)
                         }
 
-                        for (dep in grails.plugins) {
-                            String version = dep.value
-                            tokens["grace-plugin-${dep.key}.version"] = version
-                            if (!isBuildSnapshot && version.endsWith("-SNAPSHOT")) {
-                                throw new RuntimeException("Cannot have a snapshot dependency on a plugin [$dep.key] for a release!")
-                            }
-                            mkp."grace-plugin-${dep.key}.version"(version)
-                        }
-
-                        for (dep in grails.profiles) {
-                            String version = dep.value
-                            tokens["grace-profile-${dep.key}.version"] = version
-                            if (!isBuildSnapshot && version.endsWith("-SNAPSHOT")) {
-                                throw new RuntimeException("Cannot have a snapshot dependency on a profile [$dep.key] for a release!")
-                            }
-                            mkp."grace-profile-${dep.key}.version"(version)
-                        }
                     }
 
                     mkp.dependencyManagement {

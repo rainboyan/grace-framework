@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2025 the original author or authors.
+ * Copyright 2008-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,7 +111,17 @@ abstract class AbstractGrailsMockHttpServletResponse extends MockHttpServletResp
         Field field = ReflectionUtils.findField(MockHttpServletResponse, 'writer')
         ReflectionUtils.makeAccessible(field)
         field.set(this, null)
-        webRequest.setOut(getWriter())
+        // RenderMethodTests > testRenderFile FAILED
+        //    Expected exception of type 'org.grails.web.servlet.mvc.exceptions.ControllerExecutionException', but got 'java.lang.IllegalStateException'
+        //        at org.grails.web.servlet.RenderMethodTests.testRenderFile(RenderMethodTests.groovy:45)
+        //
+        //        Caused by:
+        //        java.lang.IllegalStateException: getOutputStream() has already been called
+        //            at org.springframework.util.Assert.state(Assert.java:80)
+        //            at org.springframework.mock.web.MockHttpServletResponse.getWriter(MockHttpServletResponse.java:271)
+        //            at org.grails.plugins.testing.AbstractGrailsMockHttpServletResponse.reset(AbstractGrailsMockHttpServletResponse.groovy:114)
+        //            at org.grails.web.servlet.RenderMethodTests.testRenderFile(RenderMethodTests.groovy:41)
+        // webRequest.setOut(getWriter())
         super.reset()
     }
 

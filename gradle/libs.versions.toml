@@ -6,42 +6,43 @@ assertj = "3.27.7"
 bytebuddy = "1.17.8"
 caffeine = "3.2.4"
 cglib = "3.3.0"
-commons-codec = "1.18.0"
+commons-codec = "1.19.0"
 commons-lang = "2.6"
-commons-lang3 = "3.17.0"
+commons-lang3 = "3.19.0"
+commons-logging = "1.3.6"
 commons-text = "1.13.1"
 commons-validator = "1.9.0"
-hikaricp = "6.3.3"
+hikaricp = "7.0.2"
 geb = "8.0.1"
-glassfish-expressly = "5.0.0"
+glassfish-expressly = "6.0.0"
 glassfish-web-jsp-jstl = "3.0.1"
 gpars = "1.2.1"
 grace-async = "7.1.0"
 grace-events = "7.1.0"
-grace-data = "2024.1.0"
+grace-data = "2025.0.0-SNAPSHOT"
 grace-data-hibernate = "2024.1.0"
 grace-data-mongodb = "2024.1.0"
 grace-doc-engine = "2.0.0"
-gradle = "8.14.5"
+gradle = "9.6.0"
 gradle-git-properties = "2.5.7"
 gradle-plugin-publish = "2.1.1"
-groovy = "4.0.32"
+groovy = "5.0.7-SNAPSHOT"
 gson = "2.13.2"
-h2 = "2.3.232"
-hsqldb = "2.7.3"
+h2 = "2.4.240"
+hsqldb = "2.7.4"
 hibernate = "5.6.15.Final"
 hibernate-validator = "8.0.3.Final"
 jackson-databind = "2.21.4"
 jansi = "1.18"
-jakarta-annotation = "2.1.1"
+jakarta-annotation = "3.0.0"
 jakarta-el = "5.0.1"
 jakarta-inject = "2.0.1"
-jakarta-persistence = "3.1.0"
-jakarta-servlet = "6.0.0"
-jakarta-servlet-jsp = "3.1.1"
+jakarta-persistence = "3.2.0"
+jakarta-servlet = "6.1.0"
+jakarta-servlet-jsp = "4.0.0"
 jakarta-servlet-jsp-jstl = "3.0.2"
 jakarta-transaction = "2.0.1"
-jakarta-validation = "3.0.2"
+jakarta-validation = "3.1.1"
 jakarta-xml-bind = "4.0.5"
 javaparser = "3.28.2"
 javassist = "3.30.2-GA"
@@ -50,26 +51,26 @@ jodd = "3.3.8"
 json-unit = "4.1.1"
 jsoup = "1.21.2"
 jsr305 = "3.0.2"
-junit-jupiter = "5.12.2"
-junit-platform = "1.12.2"
+junit-jupiter = "6.0.3"
+junit-platform = "6.0.3"
 liquibase = "4.31.1"
 maven = "3.9.16"
 maven-resolver = "1.9.27"
-mockito = "5.17.0"
+mockito = "5.20.0"
 objenesis = "3.4"
 rxjava = "1.3.8"
 rxjava2 = "2.2.21"
 rxjava3 = "3.1.12"
-selenium = "4.31.0"
-selenium-htmlunit = "4.30.0"
+selenium = "4.37.0"
+selenium-htmlunit = "4.36.1"
 sitemesh = "2.7.0"
 slf4j = "2.0.18"
-snakeyaml = "2.4"
-spock = "2.4-groovy-4.0"
-spring-boot = "3.5.15"
+snakeyaml = "2.5"
+spock = "2.4-groovy-5.0"
+spring-boot = "4.0.7"
 spring-dependency-management = "1.1.7"
-spring-framework = "6.2.19"
-tomcat = "10.1.55"
+spring-framework = "7.0.8"
+tomcat = "11.0.22"
 xhtmlrenderer = "9.13.3"
 
 [libraries]
@@ -85,6 +86,7 @@ cglib = { module = "cglib:cglib-nodep", version.ref = "cglib" }
 commons-codec = { module = "commons-codec:commons-codec", version.ref = "commons-codec" }
 commons-lang = { module = "commons-lang:commons-lang", version.ref = "commons-lang" }
 commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
+commons-logging = { module = "commons-logging:commons-logging", version.ref = "commons-logging" }
 commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text" }
 commons-validator = { module = "commons-validator:commons-validator", version.ref = "commons-validator" }
 hikaricp = { module = "com.zaxxer:HikariCP", version.ref = "hikaricp" }
@@ -164,7 +166,6 @@ jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "jsr305" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
 junit-platform-engine = { module = "org.junit.platform:junit-platform-engine", version.ref = "junit-platform" }
-junit-platform-runner = { module = "org.junit.platform:junit-platform-runner", version.ref = "junit-platform" }
 liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
 maven-model = { module = "org.apache.maven:maven-model", version.ref = "maven" }
 maven-resolver-provider = { module = "org.apache.maven:maven-resolver-provider", version.ref = "maven" }
@@ -208,6 +209,15 @@ spring-boot-starter-logging = { module = "org.springframework.boot:spring-boot-s
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
 spring-boot-starter-tomcat = { module = "org.springframework.boot:spring-boot-starter-tomcat", version.ref = "spring-boot" }
 spring-boot-test = { module = "org.springframework.boot:spring-boot-test", version.ref = "spring-boot" }
+spring-boot-cache = { module = "org.springframework.boot:spring-boot-cache", version.ref = "spring-boot" }
+spring-boot-jdbc = { module = "org.springframework.boot:spring-boot-jdbc", version.ref = "spring-boot" }
+spring-boot-jackson = { module = "org.springframework.boot:spring-boot-starter-json", version.ref = "spring-boot" }
+spring-boot-liquibase = { module = "org.springframework.boot:spring-boot-liquibase", version.ref = "spring-boot" }
+spring-boot-mongodb = { module = "org.springframework.boot:spring-boot-mongodb", version.ref = "spring-boot" }
+spring-boot-tomcat = { module = "org.springframework.boot:spring-boot-starter-tomcat", version.ref = "spring-boot" }
+spring-boot-webmvc = { module = "org.springframework.boot:spring-boot-webmvc", version.ref = "spring-boot" }
+spring-boot-servlet = { module = "org.springframework.boot:spring-boot-servlet", version.ref = "spring-boot" }
+spring-boot-web-server = { module = "org.springframework.boot:spring-boot-web-server", version.ref = "spring-boot" }
 spring-context = { module = "org.springframework:spring-context", version.ref = "spring-framework" }
 spring-contextSupport = { module = "org.springframework:spring-context-support", version.ref = "spring-framework" }
 spring-core = { module = "org.springframework:spring-core", version.ref = "spring-framework" }

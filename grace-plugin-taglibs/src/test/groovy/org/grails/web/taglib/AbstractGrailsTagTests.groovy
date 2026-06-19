@@ -14,7 +14,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory
 import org.springframework.beans.factory.support.RootBeanDefinition
-import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebApplicationContext
+import org.springframework.boot.web.context.servlet.AnnotationConfigServletWebApplicationContext
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ApplicationContextAware
 import org.springframework.context.MessageSource
@@ -26,15 +26,11 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver
 import org.springframework.mock.web.MockHttpServletRequest
 import org.springframework.mock.web.MockHttpServletResponse
 import org.springframework.mock.web.MockServletContext
-import org.springframework.ui.context.Theme
-import org.springframework.ui.context.ThemeSource
-import org.springframework.ui.context.support.SimpleTheme
 import org.springframework.web.context.WebApplicationContext
 import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.servlet.DispatcherServlet
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
 import org.springframework.web.servlet.support.JstlUtils
-import org.springframework.web.servlet.theme.SessionThemeResolver
 import org.w3c.dom.Document
 
 import grails.build.support.MetaClassRegistryCleaner
@@ -371,14 +367,8 @@ class MockController {
 
     private initRequestAndResponse() {
         request = webRequest.currentRequest
-        initThemeSource(request, messageSource)
         request.characterEncoding = "utf-8"
         response = webRequest.currentResponse
-    }
-
-    private void initThemeSource(request, MessageSource messageSource) {
-        request.setAttribute(DispatcherServlet.THEME_SOURCE_ATTRIBUTE, new MockThemeSource(messageSource))
-        request.setAttribute(DispatcherServlet.THEME_RESOLVER_ATTRIBUTE, new SessionThemeResolver())
     }
 
     @AfterEach
@@ -581,15 +571,4 @@ class MockController {
     protected final void assertXPathNotExists(Document doc, String expr) {
         assertFalse xpath.evaluate(expr, doc, XPathConstants.BOOLEAN)
     }
-}
-
-class MockThemeSource implements ThemeSource {
-
-    private messageSource
-
-    MockThemeSource(MessageSource messageSource) {
-        this.messageSource = messageSource
-    }
-
-    Theme getTheme(String themeName) { new SimpleTheme(themeName, messageSource) }
 }

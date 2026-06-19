@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2024 the original author or authors.
+ * Copyright 2014-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ public class GrailsDependenciesDependencyManagement extends MavenModelDependency
 
     public static final String MAVEN_CENTRAL = "https://repo1.maven.org/maven2/";
     public static final String SONATYPE_REPO_SNAPSHOT = "https://s01.oss.sonatype.org/content/repositories/snapshots/";
+    public static final String APACHE_REPO_SNAPSHOT = "https://repository.apache.org/content/repositories/snapshots/";
 
     private static final String GRAILS_BOM_URL = MAVEN_CENTRAL + "org/grails/grails-bom/%s/grails-bom-%s.pom";
     private static final String GRACE_BOM_URL = MAVEN_CENTRAL + "org/graceframework/grace-bom/%s/grace-bom-%s.pom";

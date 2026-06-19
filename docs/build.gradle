@@ -1,6 +1,17 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            name = 'Apache Repository Snapshots'
+            url = 'https://repository.apache.org/content/repositories/snapshots/'
+
+            content {
+                includeGroupAndSubgroups 'org.apache.groovy'
+            }
+            mavenContent {
+                snapshotsOnly()
+            }
+        }
     }
     dependencies {
         classpath libs.groovy.toml
@@ -27,6 +38,17 @@ def springBootVersion = versions['spring-boot']
 
 repositories {
     mavenCentral()
+    maven {
+        name = 'Apache Repository Snapshots'
+        url = 'https://repository.apache.org/content/repositories/snapshots/'
+
+        content {
+            includeGroupAndSubgroups 'org.apache.groovy'
+        }
+        mavenContent {
+            snapshotsOnly()
+        }
+    }
 }
 
 configurations {

@@ -18,7 +18,7 @@ dependencies {
     api libs.grace.datastore.gorm.support
     api libs.grace.datastore.gorm.test
     api libs.junit.jupiter.api
-    api libs.junit.platform.runner
+    // api libs.junit.platform.runner
     api libs.javassist
     api libs.jakarta.servlet
     api libs.spring.test
